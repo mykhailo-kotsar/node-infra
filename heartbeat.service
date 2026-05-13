@@ -1,0 +1,12 @@
+[Unit]
+Description=Heartbeat Node Monitor
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/heartbeat.sh
+Restart=always
+RestartSec=5
+User=root
+
+[Install]
+WantedBy=multi-user.target
