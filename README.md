@@ -25,5 +25,18 @@ docker build -t heartbeat .
 docker run -d --name heartbeat heartbeat
 ```
 
+## Nginx Reverse Proxy
+
+Config located in `nginx/grafana.conf`.
+
+Sets up reverse proxy for Grafana — accessible on port 80 instead of 3000.
+
+```bash
+cp nginx/grafana.conf /etc/nginx/sites-available/grafana
+ln -s /etc/nginx/sites-available/grafana /etc/nginx/sites-enabled/
+nginx -t
+systemctl reload nginx
+```
+
 ## Stack
-Linux · Bash · Docker · systemd · AWS EC2
+Linux · Bash · Docker · systemd · AWS EC2 · Nginx
